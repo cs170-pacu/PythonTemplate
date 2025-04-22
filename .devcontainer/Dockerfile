@@ -9,12 +9,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 # They are installed by the base image (python) which does not have the patch.
 RUN python3 -m pip install --upgrade \
     setuptools==75.6.0 \
-    gitpython==3.1.41
+    gitpython==3.1.41 mypy
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
-COPY requirements.txt /tmp/pip-tmp/
-RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-    && rm -rf /tmp/pip-tmp
+# COPY requirements.txt /tmp
+# RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/requirements.txt \
+#    && rm -rf /tmp/requirements.txt
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
