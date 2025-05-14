@@ -27,7 +27,9 @@
 				"python.defaultInterpreterPath": "/usr/local/bin/python"
             },
             "extensions": [
-                "ms-python.mypy-type-checker"
+                "ms-python.mypy-type-checker",
+                "mathematic.vscode-pdf",
+                "ms-python.python"
             ]
 		}
 	},
