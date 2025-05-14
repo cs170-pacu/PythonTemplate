@@ -4,12 +4,13 @@ FROM mcr.microsoft.com/devcontainers/python:3
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # Remove imagemagick due to https://security-tracker.debian.org/tracker/CVE-2019-10131
     && apt-get purge -y imagemagick imagemagick-6-common 
+    && apt-get install -y enscript ghostscript poppler-utils
 
 # Temporary: Upgrade python packages due to https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40897 and https://github.com/advisories/GHSA-2mqj-m65w-jghx
 # They are installed by the base image (python) which does not have the patch.
 RUN python3 -m pip install --upgrade \
     setuptools==75.6.0 \
-    gitpython==3.1.41 mypy
+    gitpython==3.1.41 mypy 
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 # COPY requirements.txt /tmp
