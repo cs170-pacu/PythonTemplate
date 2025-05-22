@@ -8,9 +8,8 @@
 # Hours:        1.5
 ################################################################################
 
-import sys
+from datetime import date
 
-print('hello!', sys.argv[0])
+print('Hello world!')
 
-if len(sys.argv) > 1:
-    print(sys.argv[1])
+print('Today is', date.today())
