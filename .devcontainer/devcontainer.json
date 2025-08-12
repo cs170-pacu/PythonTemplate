@@ -4,6 +4,7 @@
         "context": "."
     },
     "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1": {},
         "ghcr.io/devcontainers/features/common-utils:2":{
             "installZsh": "true",
             "username": "vscode",
@@ -16,6 +17,7 @@
         "ghcr.io/devcontainers/features/git:1": {
             "version": "latest",
             "ppa": "false"
+            
         }
     },
 	// Configure tool-specific properties.
@@ -27,7 +29,7 @@
 				"python.defaultInterpreterPath": "/usr/local/bin/python"
             },
             "extensions": [
-                "ms-python.mypy-type-checker",
+                // "ms-python.mypy-type-checker",
                 "mathematic.vscode-pdf",
                 "ms-python.python"
             ]
@@ -35,7 +37,12 @@
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
+    "forwardPorts": [6080],
+    "portsAttributes": {
+        "6080": {
+        "label": "desktop"
+        }
+    },
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 
